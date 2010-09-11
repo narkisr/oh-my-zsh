@@ -12,6 +12,8 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
+alias gitc='git commit -a -m '
+alias gits='git status '
 
 
 # Git and svn mix
