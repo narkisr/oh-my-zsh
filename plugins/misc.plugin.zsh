@@ -28,6 +28,14 @@ if [ -f /etc/profile.d/autojump.zsh ]; then
 	source /etc/profile.d/autojump.zsh
 fi
 
-syncloudant(){
- curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"https://narkisr:$@@narkisr.cloudant.com/snippets\" }"
+syn-to-cld(){
+    echo "enter pass"
+    read -s pass
+    result=`curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"https://narkisr:$pass@narkisr.cloudant.com/snippets\" }"`
+    echo $result | python -mjson.tool
+}
+
+syn-from-cld(){
+    result=`curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5985/snippets\", \"source\": \"http://narkisr.cloudant.com/snippets\" }"`
+    echo $result | python -mjson.tool
 }
