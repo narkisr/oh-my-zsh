@@ -15,4 +15,4 @@ if [ -f /home/ronen/idea-IC-93.94 ]; then
   export IDEA_HOME=/home/ronen/idea-IC-93.94
 fi
 
-export PATH=$PATH:$JRUBY_HOME/bin:$GROOVY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$GEM_PATH:$$VIM_HOME/bin:$IDEA_HOME/bin
+export PATH=$PATH:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$GEM_PATH:$VIM_HOME/bin:$IDEA_HOME/bin
