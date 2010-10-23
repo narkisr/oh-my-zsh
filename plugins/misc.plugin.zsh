@@ -39,3 +39,5 @@ syn-from-cld(){
     result=`curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5985/snippets\", \"source\": \"http://narkisr.cloudant.com/snippets\" }"`
     echo $result | python -mjson.tool
 }
+
+alias json-pprint='python -mjson.tool'

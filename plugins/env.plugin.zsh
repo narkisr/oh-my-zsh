@@ -2,7 +2,6 @@ export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export GOOKUP_HOME=/home/ronen/gookup
 export CLOJURE_EXT=/home/ronen/.clojure
 export JDK_HOME=$JAVA_HOME
-export JRUBY_HOME=/home/ronen/.jruby/jruby-1.3.1
 export CLOJURE_HOME=~/.clojure
 export GEM_PATH=`gem env gemdir`/bin
 export VIM_HOME=~/.vim
