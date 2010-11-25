@@ -31,13 +31,26 @@ fi
 syn-to-cld(){
     echo "enter pass"
     read -s pass
-    result=`curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"https://narkisr:$pass@narkisr.cloudant.com/snippets\" }"`
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"http://narkisr:$pass@narkisr.cloudant.com/snippets\" }"`
     echo $result | python -mjson.tool
 }
 
 syn-from-cld(){
-    result=`curl http://localhost:5985/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5985/snippets\", \"source\": \"http://narkisr.cloudant.com/snippets\" }"`
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5984/snippets\", \"source\": \"http://narkisr.cloudant.com/snippets\" }"`
+    echo $result | python -mjson.tool
+}
+
+syn-from-cone(){
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5984/snippets\", \"source\": \"http://narkisr.couchone.com/snippets\" }"`
+    echo $result | python -mjson.tool
+}
+
+syn-to-cone(){
+    echo "enter pass"
+    read -s pass
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"http://remote:$pass@narkisr.couchone.com/snippets\" }"`
     echo $result | python -mjson.tool
 }
 
 alias json-pprint='python -mjson.tool'
+alias poff='sudo poweroff'
