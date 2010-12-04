@@ -52,5 +52,12 @@ syn-to-cone(){
     echo $result | python -mjson.tool
 }
 
+tunnel-vnc(){
+    echo "enter host"
+    read host
+    echo "use localhost:5901 in vncviewer"
+    ssh -L5901:127.0.0.1:5900 $host -p 2222
+}
+
 alias json-pprint='python -mjson.tool'
 alias poff='sudo poweroff'
