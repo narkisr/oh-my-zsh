@@ -12,7 +12,7 @@ findbyname(){
 }
 
 tunnelcouch(){
-	ssh -L5983:127.0.0.1:5985 $@
+	ssh -L5983:127.0.0.1:5984 $@
 }
 
 lsym(){
@@ -48,7 +48,7 @@ syn-from-cone(){
 syn-to-cone(){
     echo "enter pass"
     read -s pass
-    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snippets\", \"target\": \"http://remote:$pass@narkisr.couchone.com/snippets\" }"`
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"source\": \"snipapp-restruct\", \"target\": \"http://remote:$pass@narkisr.couchone.com/snipapp-restruct\" }"`
     echo $result | python -mjson.tool
 }
 
