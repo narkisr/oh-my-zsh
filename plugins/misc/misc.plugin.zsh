@@ -41,7 +41,7 @@ syn-from-cld(){
 }
 
 syn-from-cone(){
-    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5984/snippets\", \"source\": \"http://narkisr.couchone.com/snippets\" }"`
+    result=`curl -X POST http://localhost:5984/_replicate -H 'Content-Type: application/json' -d "{ \"target\": \"http://localhost:5984/snipapp-restruct\", \"source\": \"http://narkisr.couchone.com/snipapp-restruct\" }"`
     echo $result | python -mjson.tool
 }
 
