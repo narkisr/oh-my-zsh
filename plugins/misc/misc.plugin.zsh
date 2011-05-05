@@ -61,3 +61,7 @@ tunnel-vnc(){
 
 alias json-pprint='python -mjson.tool'
 alias poff='sudo poweroff'
+
+snxConnect(){
+    pwsafe -Ep kenshoo.vpn | snx
+}
