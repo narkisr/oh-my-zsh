@@ -14,7 +14,7 @@ export ZSH_THEME="wezm"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow git-aliases lein rvm showoff amazon)
+plugins=(git env svn misc maven tar gitflow git-aliases lein rvm showoff amazon z)
 
 source $ZSH/oh-my-zsh.sh
 
