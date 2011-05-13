@@ -24,7 +24,7 @@ bindkey '^R' history-incremental-search-backward
 # SHIFT-TAB can do a reverse-menu-complete http://tinyurl.com/36gl95l ! 
 bindkey '^[[Z' reverse-menu-complete 
 export EDITOR="vi"
-if [ ! -s $DISPLAY ]; then 
+if [[ ! -s $DISPLAY && `which wmname` == "0" ]]; then 
   wmname LG3D
 fi
 # This loads RVM into a shell session (see http://tinyurl.com/5svjj4o  for diverting from default).
