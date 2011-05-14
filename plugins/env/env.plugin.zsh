@@ -6,7 +6,6 @@ export CLOJURE_HOME=~/.clojure
 export VIM_HOME=~/.vim
 export UTILITIES=/home/ronen/Dropbox/automation/utilities
 export GRADLE_HOME=/home/ronen/.gradle/wrapper/dists/gradle-0.9.2
-export GITMAKRS=/opt/gitmarks_2/
 
 if [ -f /home/ronen/idea-IC-95.66 ]; then
   export IDEA_HOME=/home/ronen/idea-IC-95.66
@@ -17,8 +16,12 @@ if [ -f /home/ronen/idea-IC-93.94 ]; then
 fi
 
 if which gem > /dev/null; then
-  export GEM_PATH=`gem env gemdir`/bin
-  export PATH=$PATH:$GEM_PATH
+  export PATH=$PATH:`gem env gemdir`/bin
 fi
 
-export PATH=$PATH:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$VIM_HOME/bin:$IDEA_HOME/bin:$UTILITIES:$GRADLE_HOME/bin:$GITMAKRS
+if [ -f /opt/node/bin/node ] ; 
+then 
+  export PATH=$PATH:/opt/node/bin/
+fi
+
+export PATH=$PATH:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$VIM_HOME/bin:$IDEA_HOME/bin:$UTILITIES:$GRADLE_HOME/bin
