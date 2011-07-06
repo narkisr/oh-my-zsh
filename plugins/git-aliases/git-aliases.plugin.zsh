@@ -15,6 +15,7 @@ alias gcp='git cherry-pick'
 alias gitc='git commit -a -m '
 alias gits='git status '
 
+
 #
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
@@ -30,3 +31,9 @@ alias ggpull='git pull origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
 
+function git-sub-rm(){
+  git rm --cached $1
+  awk -v reg="submodule \"$1\"" '$0 ~ reg {c=3}!(c&&c--)'  .gitmodules >/tmp/.gitmodules
+  cp /tmp/.gitmodules . 
+  rm -rf $1
+}
