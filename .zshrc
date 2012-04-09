@@ -28,7 +28,7 @@ if [[ ! -s $DISPLAY && `which wmname` == "0" ]]; then
   wmname LG3D
 fi
 # This loads RVM into a shell session (see http://tinyurl.com/5svjj4o  for diverting from default).
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" 
+[[ -s "/home/ronen/.rvm/scripts/rvm" ]] && . "/home/ronen/.rvm/scripts/rvm" 
 # enabling 256 colors
 TERM=xterm-256color
 # TERM=rxvt
@@ -40,3 +40,5 @@ fi
 
 alias sudo='sudo env PATH=$PATH'
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
