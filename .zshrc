@@ -28,14 +28,20 @@ if [[ ! -s $DISPLAY && `which wmname` == "0" ]]; then
   wmname LG3D
 fi
 # This loads RVM into a shell session (see http://tinyurl.com/5svjj4o  for diverting from default).
-[[ -s "/home/ronen/.rvm/scripts/rvm" ]] && . "/home/ronen/.rvm/scripts/rvm" 
+
+
+if [ -f "/home/ronen/.rvm/scripts/rvm" ]; then
+  [[ -s "/home/ronen/.rvm/scripts/rvm" ]] && . "/home/ronen/.rvm/scripts/rvm" 
+else 
+  [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+fi
 # enabling 256 colors
 TERM=xterm-256color
 # TERM=rxvt
 
 
 if [ -f "$HOME/keys.zsh" ]; then
-     source "$HOME/keys.zsh"
+  source "$HOME/keys.zsh"
 fi
 
 alias sudo='sudo env PATH=$PATH'
