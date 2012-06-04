@@ -45,6 +45,7 @@ if [ -f "$HOME/keys.zsh" ]; then
 fi
 
 alias sudo='sudo env PATH=$PATH'
+alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk  
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
