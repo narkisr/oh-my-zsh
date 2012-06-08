@@ -6,7 +6,7 @@ export CLOJURE_HOME=~/.clojure
 export VIM_HOME=~/.vim
 export UTILITIES=/home/ronen/Dropbox/automation/utilities
 # export GRADLE_HOME=/home/ronen/.gradle/wrapper/dists/gradle-0.9.2
-export GRADLE_HOME=/opt/gradle-1.0-milestone-3/
+export GRADLE_HOME=/opt/gradle-1.0-rc-3/
 
 if [ -f /home/ronen/idea-IC-95.66 ]; then
   export IDEA_HOME=/home/ronen/idea-IC-95.66
