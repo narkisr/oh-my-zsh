@@ -1,20 +1,14 @@
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export GOOKUP_HOME=/home/ronen/gookup
-export CLOJURE_EXT=/home/ronen/.clojure
+
+if [ -f  /usr/lib/jvm/java-6-sun ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-6-sun
+else
+  export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+fi
+
 export JDK_HOME=$JAVA_HOME
-export CLOJURE_HOME=~/.clojure
 export VIM_HOME=~/.vim
 export UTILITIES=/home/ronen/Dropbox/automation/utilities
-# export GRADLE_HOME=/home/ronen/.gradle/wrapper/dists/gradle-0.9.2
-export GRADLE_HOME=/opt/gradle-1.0-milestone-3/
-
-if [ -f /home/ronen/idea-IC-95.66 ]; then
-  export IDEA_HOME=/home/ronen/idea-IC-95.66
-fi
-
-if [ -f /home/ronen/idea-IC-93.94 ]; then
-  export IDEA_HOME=/home/ronen/idea-IC-93.94
-fi
+export GRADLE_HOME=/usr/share/gradle-1.0/
 
 if which gem > /dev/null; then
   export PATH=$PATH:`gem env gemdir`/bin
