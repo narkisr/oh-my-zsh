@@ -1,5 +1,5 @@
 
-if [ -f  /usr/lib/jvm/java-6-sun ]; then
+if [ -d  /usr/lib/jvm/java-6-sun ]; then
   export JAVA_HOME=/usr/lib/jvm/java-6-sun
 else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
