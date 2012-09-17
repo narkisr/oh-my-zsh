@@ -21,5 +21,9 @@ then
   export PATH=$PATH:/opt/node/bin/
 fi
 
+if [ -f /usr/local/go/bin/go ] ; 
+then 
+  export PATH=$PATH:/usr/local/go/bin/
+fi
 
 export PATH=$PATH:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$VIM_HOME/bin:$IDEA_HOME/bin:$UTILITIES:$GRADLE_HOME/bin:$LEMUR_HOME
