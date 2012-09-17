@@ -49,4 +49,3 @@ alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-alias sudo='nocorrect sudo'
