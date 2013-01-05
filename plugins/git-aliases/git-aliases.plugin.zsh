@@ -37,3 +37,13 @@ function git-sub-rm(){
   cp /tmp/.gitmodules . 
   rm -rf $1
 }
+
+function git-ssh-remote(){
+  remote=`git push origin master 2>&1 | awk '/Use.*/{print $2}'`
+  git remote add github $remote
+}
+
+function git-re-attach(){
+  git checkout master
+  git merge HEAD@{1}
+}
