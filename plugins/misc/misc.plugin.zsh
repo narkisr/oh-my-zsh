@@ -2,7 +2,7 @@ alias ack='ack-grep'
 alias cd='pushd'
 alias bd='popd'
 
-# which one uses port
+# which process uses port
 whichport(){
 	netstat -atunp | grep $@
 }
@@ -23,10 +23,6 @@ lsym(){
 }
 
 alias cp='cp -r'
-
-if [ -f /etc/profile.d/autojump.zsh ]; then
-	source /etc/profile.d/autojump.zsh
-fi
 
 syn-to-cld(){
     echo "enter pass"
@@ -62,6 +58,6 @@ tunnel-vnc(){
 alias json-pprint='python -mjson.tool'
 alias poff='sudo poweroff'
 
-snxConnect(){
-    pwsafe -Ep kenshoo.vpn | snx
+windowid() {
+  xwininfo -display :0
 }

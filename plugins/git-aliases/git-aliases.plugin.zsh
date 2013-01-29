@@ -47,3 +47,8 @@ function git-re-attach(){
   git checkout master
   git merge HEAD@{1}
 }
+
+# see http://tinyurl.com/aatlung  
+function git-unstash-file(){
+  git checkout stash@{0} -- $1
+}
