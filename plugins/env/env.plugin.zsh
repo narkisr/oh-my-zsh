@@ -10,7 +10,7 @@ export VIM_HOME=~/.vim
 export UTILITIES=/home/ronen/Dropbox/automation/utilities
 export GRADLE_HOME=/usr/share/gradle-1.0/
 export LEMUR_HOME=~/lemur-1.0.1/bin
-export LEIN_JAVA_CMD=/usr/lib/jvm/java-6-sun/bin/java
+export LEIN_JAVA_CMD=/usr/lib/jvm/java-6-oracle/bin/java
 
 if which gem > /dev/null; then
   export PATH=$PATH:`gem env gemdir`/bin
