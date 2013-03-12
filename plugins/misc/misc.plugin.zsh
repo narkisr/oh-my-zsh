@@ -55,6 +55,11 @@ tunnel-vnc(){
     ssh -L5901:127.0.0.1:5900 $host -p 2222
 }
 
+# a sock proxy to remote host
+socks-proxy-ssh(){
+  ssh -C -D 8080  $@
+}
+
 alias json-pprint='python -mjson.tool'
 alias poff='sudo poweroff'
 
