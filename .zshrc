@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="wezm"
+export ZSH_THEME="flazz"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -14,7 +14,7 @@ export ZSH_THEME="wezm"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow git-aliases lein rvm showoff amazon z tmux vagrant cap git-extras)
+plugins=(git env svn misc maven tar gitflow git-aliases lein rvm showoff amazon z tmux vagrant cap git-extras vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
