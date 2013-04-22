@@ -52,3 +52,9 @@ function git-re-attach(){
 function git-unstash-file(){
   git checkout stash@{0} -- $1
 }
+
+function gh-pages-clean(){
+  git checkout --orphan gh-pages
+  git rm -rf .
+  rm '.gitignore'
+}

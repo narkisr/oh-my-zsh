@@ -49,3 +49,6 @@ alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+ source "/home/ronen/.gvm/bin/gvm-init.sh"
