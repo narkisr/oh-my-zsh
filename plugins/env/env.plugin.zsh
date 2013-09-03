@@ -1,6 +1,8 @@
 
-if [ -d  /usr/lib/jvm/java-6-oracle ]; then
-  export JAVA_HOME=/usr/lib/jvm/java-6-oracle
+if [ -d  /usr/lib/jvm/java-7-openjdk-amd64 ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+elif [ -d  /usr/lib/jvm/java-6-oracle ]; then
+    export JAVA_HOME=/usr/lib/jvm/java-6-oracle
 else
   export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
 fi
