@@ -14,7 +14,7 @@ export ZSH_THEME="flazz"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon z tmux vagrant cap git-extras vi-mode)
+plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon z tmux vagrant cap git-extras vi-mode git-aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,8 +37,6 @@ else
 fi
 # enabling 256 colors
 TERM=xterm-256color
-# TERM=rxvt
-
 
 if [ -f "$HOME/keys.zsh" ]; then
   source "$HOME/keys.zsh"
@@ -47,11 +45,7 @@ fi
 alias sudo='sudo env PATH=$PATH'
 alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk  
 
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-source "/home/ronen/.gvm/bin/gvm-init.sh"
-source ~/.nvm/nvm.sh
-
-[ -s "/home/ronen/.scm_breeze/scm_breeze.sh" ] && source "/home/ronen/.scm_breeze/scm_breeze.sh"
+[ -s ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
+[ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
