@@ -1,4 +1,6 @@
 
+export LC_ALL=en_US.UTF-8
+
 if [ -d  /usr/lib/jvm/java-6-oracle ]; then
   export JAVA_HOME=/usr/lib/jvm/java-6-oracle
 else
