@@ -1,5 +1,5 @@
 
-export LC_ALL=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 
 if [ -d  /usr/lib/jvm/java-7-openjdk-amd64 ]; then
   export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
