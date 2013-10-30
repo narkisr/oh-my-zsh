@@ -14,7 +14,7 @@ export ZSH_THEME="flazz"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon z tmux vagrant cap git-extras vi-mode git-aliases docker)
+plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon tmux vagrant cap git-extras vi-mode git-aliases docker nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,6 +41,8 @@ TERM=xterm-256color
 if [ -f "$HOME/keys.zsh" ]; then
   source "$HOME/keys.zsh"
 fi
+
+[[ -x $(whence -p fasd) ]] && eval "$(fasd --init posix-alias zsh-hook)"
 
 alias sudo='sudo env PATH=$PATH'
 alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk  
