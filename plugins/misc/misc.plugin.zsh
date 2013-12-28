@@ -75,3 +75,15 @@ max-memory(){
 disk-usage(){
   du -x . | sort -rn | more
 }
+
+
+uncommitted(){
+  for gitdir in `find ./ -name .git`; 
+  do 
+    workdir=${gitdir%/*}; 
+    if git --git-dir=$gitdir --work-tree=$workdir status | grep -q modified; 
+    then
+	echo $workdir; 
+    fi
+  done
+}
