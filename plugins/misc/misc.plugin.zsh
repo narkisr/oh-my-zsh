@@ -87,3 +87,7 @@ uncommitted(){
     fi
   done
 }
+
+docker-clear-all(){
+  sudo docker rm `sudo docker ps -a -q` 
+}
