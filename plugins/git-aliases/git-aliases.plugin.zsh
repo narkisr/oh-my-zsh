@@ -59,3 +59,12 @@ function gh-pages-clean(){
   git rm -rf .
   rm '.gitignore'
 }
+
+# Remove multiple remote git branches 
+function rm-remote-branch(){
+  git branch -r | awk -F/ "/\/$1/{print \$2}" | xargs -I {} git push origin :{}
+}
+
+function rm-remote-branch-dry(){
+  git branch -r | awk -F/ "/\/$1/{print \$2}"
+}
