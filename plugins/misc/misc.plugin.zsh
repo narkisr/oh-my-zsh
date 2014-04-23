@@ -91,3 +91,8 @@ uncommitted(){
 docker-clear-all(){
   sudo docker rm `sudo docker ps -a -q` 
 }
+
+mpsyt-env(){
+  source /etc/bash_completion.d/virtualenvwrapper
+  workon mps-youtube
+}
