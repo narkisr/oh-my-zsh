@@ -91,3 +91,7 @@ uncommitted(){
 docker-clear-all(){
   sudo docker rm `sudo docker ps -a -q` 
 }
+
+docker-clear-untagged(){
+  sudo docker rmi $(sudo docker images | grep "^<none>" | awk '{print $3}')                                 <<<
+}
