@@ -32,6 +32,10 @@ fi
 
 if [ -f "/home/ronen/.rvm/scripts/rvm" ]; then
   [[ -s "/home/ronen/.rvm/scripts/rvm" ]] && . "/home/ronen/.rvm/scripts/rvm" 
+elif [ -d "/media/contents/rvm" ]; then
+  # see https://stackoverflow.com/questions/15282509/how-to-change-rvm-install-location 
+  export rvm_path=/media/contents/rvm
+  . "/media/contents/rvm/scripts/rvm"
 else 
   [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
 fi
