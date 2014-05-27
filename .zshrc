@@ -14,7 +14,7 @@ export ZSH_THEME="sonicradish"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon tmux vagrant cap git-extras vi-mode git-aliases nvm docker tmuxinator mix history-substring-search per-directory-history)
+plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon tmux vagrant cap git-extras vi-mode git-aliases nvm docker tmuxinator mix history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
