@@ -38,6 +38,10 @@ function git-sub-rm(){
   rm -rf $1
 }
 
+function git-sub-up(){
+ git submodule foreach git pull
+}
+
 function git-ssh-remote(){
   remote=`git push origin master 2>&1 | awk '/Use.*/{print $2}'`
   remote=`echo $remote | sed -e 's/https:\/\/github.com/git@github.com:/g'`
