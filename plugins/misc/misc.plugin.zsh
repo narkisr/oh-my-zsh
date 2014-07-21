@@ -75,3 +75,33 @@ mpsyt-env(){
   source /etc/bash_completion.d/virtualenvwrapper
   workon mps-youtube
 }
+
+init-crypt(){
+  cwd=`pwd`
+  echo "enter name"
+  read name
+  echo "enter size (in MB)"
+  read size
+  dd if=/dev/zero of=$cwd/$name bs=1M count=$size
+  echo "$cwd/$name"
+  sudo losetup /dev/loop1 $cwd/$name
+  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
+  sudo cryptsetup luksOpen /dev/loop1 $name
+  sudo mkfs.btrfs /dev/mapper/$name
+  uuid=`uuidgen`
+  mkdir $uuid
+  sudo mount -t btrfs -o compress=lzo /dev/mapper/$name /tmp/$uuid
+}
+
+umount-crypt(){
+  cwd=`pwd`
+  sudo umount $2
+  sudo cryptsetup luksClose $1 
+  sudo losetup -d /dev/loop1
+}
+
+mount-crypt(){
+  sudo losetup /dev/loop1 $1
+  sudo cryptsetup luksOpen /dev/loop1 $1
+  sudo mount -t btrfs -o compress=lzo /dev/mapper/$1 $2
+}
