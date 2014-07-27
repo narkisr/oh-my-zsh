@@ -89,12 +89,11 @@ init-crypt(){
   sudo cryptsetup luksOpen /dev/loop1 $name
   sudo mkfs.btrfs /dev/mapper/$name
   uuid=`uuidgen`
-  mkdir $uuid
+  mkdir /tmp/$uuid
   sudo mount -t btrfs -o compress=lzo /dev/mapper/$name /tmp/$uuid
 }
 
 umount-crypt(){
-  cwd=`pwd`
   sudo umount $2
   sudo cryptsetup luksClose $1 
   sudo losetup -d /dev/loop1
