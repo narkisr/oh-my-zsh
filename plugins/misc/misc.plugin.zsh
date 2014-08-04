@@ -104,3 +104,11 @@ mount-crypt(){
   sudo cryptsetup luksOpen /dev/loop1 $1
   sudo mount -t btrfs -o compress=lzo /dev/mapper/$1 $2
 }
+
+vbox-folder(){
+  VBoxManage setproperty machinefolder $1
+}
+
+running-vms(){
+  VBoxManage list runningvms
+}
