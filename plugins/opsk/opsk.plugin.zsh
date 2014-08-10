@@ -13,6 +13,7 @@ function _opsk_commands() {
 	    "help:print help banner"
 	    "module:generate a puppet module under static-module"
 	    "package:package the project under pkg/{project name}-{version}"
+	    "dockerize:creates a Docker image from the current sandbox"
 	    "version:print opsk version"
         )
         _describe -t subcommands 'opsk subcommands' subcommands && ret=0
