@@ -82,7 +82,7 @@ init-crypt(){
   read name
   echo "enter size (in MB)"
   read size
-  dd if=/dev/zero of=$cwd/$name bs=1M count=$size
+  fallocate -l "${size}M"  $cwd/$name 
   echo "$cwd/$name"
   sudo losetup /dev/loop1 $cwd/$name
   sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
