@@ -95,6 +95,24 @@ init-crypt(){
   sudo mount -t btrfs -o compress=lzo /dev/mapper/$name /tmp/$uuid
 }
 
+init-crypt-ext4(){
+  cwd=`pwd`
+  echo "enter name"
+  read name
+  echo "enter size (in MB)"
+  read size
+  fallocate -l "${size}M"  $cwd/$name 
+  echo "$cwd/$name"
+  sudo losetup /dev/loop1 $cwd/$name
+  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
+  sudo cryptsetup luksOpen /dev/loop1 $name
+  sudo mkfs.ext4 /dev/mapper/$name
+  echo "mounting crypt file to /tmp/$uuid"
+  uuid=`uuidgen`
+  mkdir /tmp/$uuid
+  sudo mount -t ext4 /dev/mapper/$name /tmp/$uuid
+}
+
 umount-crypt(){
   sudo umount $2
   sudo cryptsetup luksClose $1 
