@@ -48,6 +48,12 @@ function git-ssh-remote(){
   git remote add github $remote
 }
 
+function git-remaster(){
+  git stash
+  git checkout master
+  git pull origin master
+  git stash apply stash@\{0\}
+}
 function git-re-attach(){
   git checkout master
   git merge HEAD@{1}
