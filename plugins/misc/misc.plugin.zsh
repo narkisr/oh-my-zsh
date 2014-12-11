@@ -107,10 +107,16 @@ init-crypt-ext4(){
   sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
   sudo cryptsetup luksOpen /dev/loop1 $name
   sudo mkfs.ext4 /dev/mapper/$name
-  echo "mounting crypt file to /tmp/$uuid"
   uuid=`uuidgen`
+  echo "mounting crypt file to /tmp/$uuid"
   mkdir /tmp/$uuid
   sudo mount -t ext4 /dev/mapper/$name /tmp/$uuid
+}
+
+mount-crypt-ext4(){
+  sudo losetup /dev/loop1 $1
+  sudo cryptsetup luksOpen /dev/loop1 $1
+  sudo mount -t ext4 /dev/mapper/$1 $2
 }
 
 umount-crypt(){
