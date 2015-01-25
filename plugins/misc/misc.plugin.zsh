@@ -23,6 +23,8 @@ lsym(){
 }
 
 alias cp='cp -r'
+alias v='vi'
+alias vo='vi -o'
 
 tunnel-vnc(){
   echo "enter host"
