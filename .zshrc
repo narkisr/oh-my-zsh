@@ -54,6 +54,7 @@ alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [ -s ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 [ -s ~/.oh-my-zsh/locally.sh ] && source ~/.oh-my-zsh/locally.sh 
 
