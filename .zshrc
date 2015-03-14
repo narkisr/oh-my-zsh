@@ -58,3 +58,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [ -s ~/.oh-my-zsh/locally.sh ] && source ~/.oh-my-zsh/locally.sh 
 
 [ -s "/home/ronen/.scm_breeze/scm_breeze.sh" ] && source "/home/ronen/.scm_breeze/scm_breeze.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
