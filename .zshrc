@@ -14,7 +14,7 @@ export ZSH_THEME="sonicradish"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon tmux vagrant cap git-extras vi-mode git-aliases nvm docker tmuxinator mix history-substring-search opsk)
+plugins=(git env svn misc maven tar gitflow lein rvm showoff amazon tmux vagrant cap git-extras vi-mode git-aliases nvm docker tmuxinator mix history-substring-search opsk librarian)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,6 +54,7 @@ alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [ -s ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 [ -s ~/.oh-my-zsh/locally.sh ] && source ~/.oh-my-zsh/locally.sh 
 
