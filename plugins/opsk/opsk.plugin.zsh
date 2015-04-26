@@ -7,7 +7,9 @@ function _opsk_commands() {
         subcommands=(
           "bump:increase current project version"
 	    "clean:clears package folder"
-	    "deploy:deploy into a bintray repo"
+	    "deploy_bintray:deploy into a bintray repo"
+	    "deploy_s3:deploy packge into s3 bucket under path folder",
+	    "deploy_scp:deploy packge using scp into to host under path",
 	    "generate_chef:generates a chef based project"
 	    "generate_puppet:generates a puppet based project"
 	    "help:print help banner"
