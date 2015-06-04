@@ -146,3 +146,7 @@ stop-all-vms(){
 load-bluethooth(){
   sudo pactl load-module module-bluetooth-discover
 }
+
+nocaps(){
+  setxkbmap -option ctrl:nocaps
+}
