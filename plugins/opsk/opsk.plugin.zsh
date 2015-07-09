@@ -7,6 +7,8 @@ function _opsk_commands() {
         subcommands=(
           "bump:increase current project version"
 	    "clean:clears package folder"
+	    "commit:commit changes under modules directory" 
+	    "push:push changes from local modules to remote repos" 
 	    "deploy_bintray:deploy into a bintray repo"
 	    "deploy_s3:deploy packge into s3 bucket under path folder",
 	    "deploy_scp:deploy packge using scp into to host under path",
