@@ -150,3 +150,8 @@ load-bluethooth(){
 nocaps(){
   setxkbmap -option ctrl:nocaps
 }
+
+# run-zbackup from passfile dest
+incrzbackup(){
+  tar c $1 | zbackup --threads 8 --password-file  $2 backup $3/incremental-`date '+%Y-%m-%d-%s'`
+}
