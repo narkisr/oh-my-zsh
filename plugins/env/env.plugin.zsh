@@ -37,4 +37,9 @@ then
   export PATH=$PATH:/opt/elixir/bin/
 fi
 
+if [ -d /opt/elm/ ]; 
+then
+  PATH=$PATH:/opt/elm/bin
+fi
+
 export PATH=$PATH:~/bin/:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$VIM_HOME/bin:$IDEA_HOME/bin:$UTILITIES:$LEMUR_HOME:$GRADLE_HOME/bin/
