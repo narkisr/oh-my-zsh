@@ -1,7 +1,8 @@
 
 # export LC_ALL=en_US.UTF-8
-
-if [ -d  /usr/lib/jvm/java-7-oracle ]; then
+if [ -d  /usr/lib/jvm/java-8-oracle ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+elif [ -d  /usr/lib/jvm/java-7-oracle ]; then
   export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 elif [ -d  /usr/lib/jvm/java-7-openjdk-amd64 ]; then
   export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
