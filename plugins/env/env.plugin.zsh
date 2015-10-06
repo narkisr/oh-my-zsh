@@ -1,7 +1,8 @@
 
 # export LC_ALL=en_US.UTF-8
-
-if [ -d  /usr/lib/jvm/java-7-oracle ]; then
+if [ -d  /usr/lib/jvm/java-8-oracle ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+elif [ -d  /usr/lib/jvm/java-7-oracle ]; then
   export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 elif [ -d  /usr/lib/jvm/java-7-openjdk-amd64 ]; then
   export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
@@ -34,6 +35,11 @@ fi
 if [ -f /opt/elixir/bin/elixir ] ; 
 then 
   export PATH=$PATH:/opt/elixir/bin/
+fi
+
+if [ -d /opt/elm/ ]; 
+then
+  PATH=$PATH:/opt/elm/bin
 fi
 
 export PATH=$PATH:~/bin/:$JRUBY_HOME/bin:$GOOKUP_HOME/bin:$CLOJURE_HOME/lein:$ROO_HOME/bin:$PAX_CONS_HOME/bin:$CLOJURE_HOME/repl:$JETTY_HOME/bin:$VIM_HOME/bin:$IDEA_HOME/bin:$UTILITIES:$LEMUR_HOME:$GRADLE_HOME/bin/
