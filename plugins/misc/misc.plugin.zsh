@@ -155,3 +155,9 @@ nocaps(){
 incrzbackup(){
   tar c $1 | zbackup --threads 8 --password-file  $2 backup $3/incremental-`date '+%Y-%m-%d-%s'`
 }
+
+
+# $1 = RAM cache size(ie 4096mb) $2 (thread count  ie 16) 
+zrestore(){
+  zbackup restore --cache-size $1 --threads $2 --password-file $3 $4 > $5
+}
