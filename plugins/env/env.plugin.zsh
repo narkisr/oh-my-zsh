@@ -1,5 +1,6 @@
 
 # export LC_ALL=en_US.UTF-8
+
 if [ -d  /usr/lib/jvm/java-8-oracle ]; then
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 elif [ -d  /usr/lib/jvm/java-7-oracle ]; then
@@ -22,22 +23,22 @@ if which gem > /dev/null; then
   export PATH=$PATH:`gem env gemdir`/bin
 fi
 
-if [ -f /opt/node/bin/node ] ; 
-then 
+if [ -f /opt/node/bin/node ] ;
+then
   export PATH=$PATH:/opt/node/bin/
 fi
 
-if [ -f /usr/local/go/bin/go ] ; 
-then 
+if [ -f /usr/local/go/bin/go ] ;
+then
   export PATH=$PATH:/usr/local/go/bin/
 fi
 
-if [ -f /opt/elixir/bin/elixir ] ; 
-then 
+if [ -f /opt/elixir/bin/elixir ] ;
+then
   export PATH=$PATH:/opt/elixir/bin/
 fi
 
-if [ -d /opt/elm/ ]; 
+if [ -d /opt/elm/ ];
 then
   PATH=$PATH:/opt/elm/bin
 fi
