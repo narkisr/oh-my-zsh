@@ -7,13 +7,10 @@ whichport(){
   netstat -atunp | grep $@
 }
 
-findbyname(){
+findname(){
   find . -name $@
 }
 
-tunnelcouch(){
-  ssh -L5983:127.0.0.1:5984 $@
-}
 
 lsym(){
   for i in $(find -maxdepth 1 -type l -printf '%f ')
@@ -26,13 +23,6 @@ alias cp='cp -r'
 alias v='vim'
 alias vo='vim -o'
 
-tunnel-vnc(){
-  echo "enter host"
-  read host
-  echo "use localhost:5901 in vncviewer"
-  ssh -L5901:127.0.0.1:5900 $host -p 2222
-}
-
 # a sock proxy to remote host
 socks-proxy-ssh(){
   ssh -C -D 8080  $@
@@ -41,10 +31,6 @@ socks-proxy-ssh(){
 alias json-pprint='python -mjson.tool'
 
 alias poff='sudo poweroff'
-
-windowid() {
-  xwininfo -display :0
-}
 
 max-memory(){
   ps aux | awk '{print $2, $4, $11}' | sort -k2r | head -n 10
@@ -55,27 +41,22 @@ disk-usage(){
 }
 
 uncommitted(){
-  for gitdir in `find ./ -name .git`; 
-  do 
-    workdir=${gitdir%/*}; 
-    if git --git-dir=$gitdir --work-tree=$workdir status | grep -q modified; 
+  for gitdir in `find ./ -name .git`;
+  do
+    workdir=${gitdir%/*};
+    if git --git-dir=$gitdir --work-tree=$workdir status | grep -q modified;
     then
-	echo $workdir; 
+	echo $workdir;
     fi
   done
 }
 
 docker-clear-all(){
-  sudo docker rm `sudo docker ps -a -q` 
+  sudo docker rm `sudo docker ps -a -q`
 }
 
 docker-clear-untagged(){
   sudo docker rmi $(sudo docker images | grep "^<none>" | awk '{print $3}')
-}
-
-mpsyt-env(){
-  source /etc/bash_completion.d/virtualenvwrapper
-  workon mps-youtube
 }
 
 init-crypt(){
@@ -84,10 +65,10 @@ init-crypt(){
   read name
   echo "enter size (in MB)"
   read size
-  fallocate -l "${size}M"  $cwd/$name 
+  fallocate -l "${size}M"  $cwd/$name
   echo "$cwd/$name"
   sudo losetup /dev/loop1 $cwd/$name
-  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
+  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1
   sudo cryptsetup luksOpen /dev/loop1 $name
   sudo mkfs.btrfs /dev/mapper/$name
   uuid=`uuidgen`
@@ -101,10 +82,10 @@ init-crypt-ext4(){
   read name
   echo "enter size (in MB)"
   read size
-  fallocate -l "${size}M"  $cwd/$name 
+  fallocate -l "${size}M"  $cwd/$name
   echo "$cwd/$name"
   sudo losetup /dev/loop1 $cwd/$name
-  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1 
+  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1
   sudo cryptsetup luksOpen /dev/loop1 $name
   sudo mkfs.ext4 /dev/mapper/$name
   uuid=`uuidgen`
@@ -121,7 +102,7 @@ mount-crypt-ext4(){
 
 umount-crypt(){
   sudo umount $2
-  sudo cryptsetup luksClose $1 
+  sudo cryptsetup luksClose $1
   sudo losetup -d /dev/loop1
 }
 
@@ -151,13 +132,36 @@ nocaps(){
   setxkbmap -option ctrl:nocaps
 }
 
+
+### ZBackup
 # run-zbackup from passfile dest
 incrzbackup(){
   tar c $1 | zbackup --threads 8 --password-file  $2 backup $3/incremental-`date '+%Y-%m-%d-%s'`
 }
 
 
-# $1 = RAM cache size(ie 4096mb) $2 (thread count  ie 16) 
+# $1 = RAM cache size(ie 4096mb) $2 (thread count  ie 16)
 zrestore(){
   zbackup restore --cache-size $1 --threads $2 --password-file $3 $4 > $5
+}
+
+
+### Audio device change
+soundoutput(){
+  if [ -z "$1" ]; then
+    echo "Usage: $0 <sinkId/sinkName>" >&2
+    echo "Valid sinks:" >&2
+    pactl list short sinks >&2
+    return
+  fi
+
+  newSink="$1"
+
+  echo "set-default-sink $newSink" | pacmd
+
+  pactl list short sink-inputs|while read stream; do
+    streamId=$(echo $stream|cut '-d ' -f1)
+    echo "moving stream $streamId"
+    pactl move-sink-input "$streamId" "$newSink"
+  done
 }
