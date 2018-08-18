@@ -27,8 +27,8 @@ alias _='sudo'
 alias please='sudo'
 
 ## more intelligent acking for ubuntu users
-if which ack-grep &> /dev/null; then
-  alias afind='ack-grep -il'
+if which ack &> /dev/null; then
+  alias afind='ack -il'
 else
   alias afind='ack -il'
 fi

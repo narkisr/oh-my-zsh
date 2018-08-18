@@ -1,4 +1,3 @@
-alias ack='ack-grep'
 alias cd='pushd'
 alias bd='popd'
 
