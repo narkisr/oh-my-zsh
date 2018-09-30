@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="sonicradish"
 
-plugins=(git env misc tar lein amazon tmux cap git-extras vi-mode git-aliases docker tmuxinator mix history-substring-search z kubectl)
+plugins=(git env misc tar lein amazon tmux cap git-extras vi-mode git-aliases docker tmuxinator mix history-substring-search z kubectl helm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,4 +42,3 @@ alias sudo='nocorrect sudo' # see http://tinyurl.com/8xb3pbk
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s ~/.scm_breeze/scm_breeze.sh ] && source ~/.scm_breeze/scm_breeze.sh
 [ -s ~/.oh-my-zsh/locally.sh ] && source ~/.oh-my-zsh/locally.sh
-
