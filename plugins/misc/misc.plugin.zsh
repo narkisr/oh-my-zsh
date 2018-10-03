@@ -169,3 +169,7 @@ soundoutput(){
 screecast() {
   cvlc screen:// --screen-fps=30 --input-slave=alsa://hw:1,0 --sout "#transcode{vcodec=h264,quality:100,scale=1,fps=30,acodec=mp4a,ab=128,channels=2, samplerate=44100}:duplicate{dst=std{access=file,mux=mp4,dst=desktop.mp4}}}"
 }
+
+killpanel() {
+  ps aux | grep panel | head -n 1 | awk '{print $2}' | xargs kill -9
+}
