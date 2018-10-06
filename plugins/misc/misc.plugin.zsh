@@ -171,7 +171,7 @@ screecast() {
 }
 
 killpanel() {
-  ps aux | grep panel | head -n 1 | awk '{print $2}' | xargs kill -9
+  ps aux | grep xfce4-panel | head -n 1 | awk '{print $2}' | xargs kill -9
 }
 
 
