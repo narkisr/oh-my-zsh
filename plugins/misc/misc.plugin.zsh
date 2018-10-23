@@ -173,3 +173,18 @@ screecast() {
 killpanel() {
   ps aux | grep panel | head -n 1 | awk '{print $2}' | xargs kill -9
 }
+
+
+# k8s related
+kube-proxy(){
+  kubectl proxy --port=8080 --kubeconfig=/home/ronen/.kube/config-devel
+}
+
+ecr-login(){
+ aws ecr get-login | awk '{print $6}'
+}
+
+touch-deployment(){
+  kubectl patch deployment $1 -p \ "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+}
+
