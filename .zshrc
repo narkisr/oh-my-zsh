@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="sonicradish"
 
-plugins=(git env misc tar lein amazon tmux cap git-extras vi-mode git-aliases docker tmuxinator mix history-substring-search z kubectl helm)
+plugins=(git env misc tar gitflow lein amazon tmux git-extras vi-mode git-aliases docker tmuxinator history-substring-search z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,17 +18,7 @@ if [[ ! -s $DISPLAY && `which wmname` == "0" ]]; then
   wmname LG3D
 fi
 
-# This loads RVM into a shell session (see http://tinyurl.com/5svjj4o  for diverting from default).
 
-if [ -f "/home/ronen/.rvm/scripts/rvm" ]; then
-  [[ -s "/home/ronen/.rvm/scripts/rvm" ]] && . "/home/ronen/.rvm/scripts/rvm"
-elif [ -d "/media/contents/rvm" ]; then
-  # see https://stackoverflow.com/questions/15282509/how-to-change-rvm-install-location
-  export rvm_path=/media/contents/rvm
-  . "/media/contents/rvm/scripts/rvm"
-else
-  [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
-fi
 # enabling 256 colors
 TERM=xterm-256color
 
