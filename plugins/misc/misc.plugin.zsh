@@ -1,7 +1,11 @@
+## Aliases
+alias cp='cp -r'
+alias v='nvim'
+alias vo='nvim -o'
 alias cd='pushd'
 alias bd='popd'
 
-# which process uses port
+# Which process uses port
 whichport(){
   netstat -atunp | grep $@
 }
@@ -18,16 +22,10 @@ lsym(){
   done
 }
 
-alias cp='cp -r'
-alias v='vim'
-alias vo='vim -o'
-
 # a sock proxy to remote host
 socks-proxy-ssh(){
   ssh -C -D 8080  $@
 }
-
-alias json-pprint='python -mjson.tool'
 
 alias poff='sudo poweroff'
 
@@ -58,89 +56,12 @@ docker-clear-untagged(){
   sudo docker rmi $(sudo docker images | grep "^<none>" | awk '{print $3}')
 }
 
-init-crypt(){
-  cwd=`pwd`
-  echo "enter name"
-  read name
-  echo "enter size (in MB)"
-  read size
-  fallocate -l "${size}M"  $cwd/$name
-  echo "$cwd/$name"
-  sudo losetup /dev/loop1 $cwd/$name
-  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1
-  sudo cryptsetup luksOpen /dev/loop1 $name
-  sudo mkfs.btrfs /dev/mapper/$name
-  uuid=`uuidgen`
-  mkdir /tmp/$uuid
-  sudo mount -t btrfs -o compress=lzo /dev/mapper/$name /tmp/$uuid
-}
-
-init-crypt-ext4(){
-  cwd=`pwd`
-  echo "enter name"
-  read name
-  echo "enter size (in MB)"
-  read size
-  fallocate -l "${size}M"  $cwd/$name
-  echo "$cwd/$name"
-  sudo losetup /dev/loop1 $cwd/$name
-  sudo cryptsetup luksFormat --cipher=serpent-xts-plain64 --hash=sha256 /dev/loop1
-  sudo cryptsetup luksOpen /dev/loop1 $name
-  sudo mkfs.ext4 /dev/mapper/$name
-  uuid=`uuidgen`
-  echo "mounting crypt file to /tmp/$uuid"
-  mkdir /tmp/$uuid
-  sudo mount -t ext4 /dev/mapper/$name /tmp/$uuid
-}
-
-mount-crypt-ext4(){
-  sudo losetup /dev/loop1 $1
-  sudo cryptsetup luksOpen /dev/loop1 $1
-  sudo mount -t ext4 /dev/mapper/$1 $2
-}
-
-umount-crypt(){
-  sudo umount $2
-  sudo cryptsetup luksClose $1
-  sudo losetup -d /dev/loop1
-}
-
-mount-crypt(){
-  sudo losetup /dev/loop1 $1
-  sudo cryptsetup luksOpen /dev/loop1 $1
-  sudo mount -t btrfs -o compress=lzo /dev/mapper/$1 $2
-}
-
-vbox-folder(){
-  VBoxManage setproperty machinefolder $1
-}
-
-running-vms(){
-  VBoxManage list runningvms
-}
-
-stop-all-vms(){
-  vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} poweroff
-}
-
 load-bluethooth(){
   sudo pactl load-module module-bluetooth-discover
 }
 
 nocaps(){
   setxkbmap -option ctrl:nocaps
-}
-
-### ZBackup
-# run-zbackup from passfile dest
-incrzbackup(){
-  tar c $1 | zbackup --threads 8 --password-file  $2 backup $3/incremental-`date '+%Y-%m-%d-%s'`
-}
-
-
-# $1 = RAM cache size(ie 4096mb) $2 (thread count  ie 16)
-zrestore(){
-  zbackup restore --cache-size $1 --threads $2 --password-file $3 $4 > $5
 }
 
 
