@@ -13,7 +13,9 @@ set -o vi
 bindkey '^R' history-incremental-search-backward
 # SHIFT-TAB can do a reverse-menu-complete http://tinyurl.com/36gl95l !
 bindkey '^[[Z' reverse-menu-complete
-export EDITOR="vi"
+
+export EDITOR="nvim"
+
 if [[ ! -s $DISPLAY && `which wmname` == "0" ]]; then
   wmname LG3D
 fi
