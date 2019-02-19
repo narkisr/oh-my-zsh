@@ -13,4 +13,4 @@ export GEM_HOME=~/.gems
 export GRADLE_HOME=/usr/share/gradle
 export LEIN_JAVA_CMD=/usr/bin/java
 
-export PATH=$PATH:~/bin/:$GEM_HOME/bin/
+export PATH=$PATH:~/bin:$GEM_HOME/bin/
