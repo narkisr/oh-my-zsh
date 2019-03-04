@@ -91,6 +91,14 @@ screecast() {
 }
 
 killpanel() {
-  ps aux | grep xfce4-panel | head -n 1 | awk '{print $2}' | xargs kill -9
+  if [ $XDG_CURRENT_DESKTOP = "MATE" ]
+  then
+    service="mate-panel"
+  elif [ $XDG_CURRENT_DESKTOP = "XFCE" ]
+  then
+    service="xfce4-panel"
+  fi
+
+  ps aux | grep $service | head -n 1 | awk '{print $2}' | xargs kill -9
 }
 
