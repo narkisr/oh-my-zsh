@@ -102,3 +102,6 @@ killpanel() {
   ps aux | grep $service | head -n 1 | awk '{print $2}' | xargs kill -9
 }
 
+replace(){
+  xmonad --replace &; sleep 3 && killpanel
+}
