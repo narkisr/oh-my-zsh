@@ -105,3 +105,15 @@ killpanel() {
 replace(){
   xmonad --replace &; sleep 3 && killpanel
 }
+
+jdk-11(){
+  export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
+  echo 2 | sudo update-alternatives --config javac
+  echo 3 | sudo update-alternatives --config java
+}
+
+jdk-8(){
+  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+  echo 1 | sudo update-alternatives --config javac
+  echo 1 | sudo update-alternatives --config java
+}
