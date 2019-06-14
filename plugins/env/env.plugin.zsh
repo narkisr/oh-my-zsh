@@ -1,10 +1,10 @@
 
 # export LC_ALL=en_US.UTF-8
 
-if [ -d  /usr/lib/jvm/java-8-oracle ]; then
-  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-elif [ -d /usr/lib/jvm/java-8-openjdk-amd64/ ]; then
-  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+if [ -d  /usr/lib/jvm/java-1.8.0-amazon-corretto/ ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto/
+elif [ -d /usr/lib/jvm/java-11-amazon-corretto/ ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto/
 fi
 
 export JDK_HOME=$JAVA_HOME
